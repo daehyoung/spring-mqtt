@@ -21,5 +21,5 @@ public class MqttConfigProperties {
     Integer timeout = 10000;
 
     Integer keepAliveInterval= 60;
-    Boolean cleanSession = true;
+    Boolean cleanSession = false;
 }

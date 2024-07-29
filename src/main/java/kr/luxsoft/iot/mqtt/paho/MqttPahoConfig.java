@@ -20,10 +20,11 @@ public class MqttPahoConfig {
         options.setCleanSession(properties.getCleanSession());
         options.setServerURIs(new String[]{properties.getUrl()});
         options.setAutomaticReconnect(true);
+
         options.setConnectionTimeout(properties.getTimeout());
         options.setUserName(properties.getUsername());
         options.setPassword(properties.getPassword().toCharArray());
-        MqttClient client = new MqttClient(properties.getUrl(), properties.getClientId()+"-"+System.currentTimeMillis());
+        MqttClient client = new MqttClient(properties.getUrl(), properties.getClientId() );
         client.connect(options);
         return client;
     }

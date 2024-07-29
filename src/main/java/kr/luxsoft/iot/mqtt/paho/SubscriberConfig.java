@@ -18,9 +18,15 @@ public class SubscriberConfig extends MqttPahoConfig {
 
     @Bean
     MqttClientSubscriber subscriber( MqttSubscribeConfigProperties properties) throws MqttException {
+
+        //
         log.info("{}",properties);
-        MqttClientSubscriber subscriber = new MqttClientSubscriber(client(properties), properties.getTopic(), (payload) -> {
-            log.info("{}", new String(payload));
+
+        //
+        MqttClientSubscriber subscriber = new MqttClientSubscriber(
+                client(properties), properties.getTopic(), (payload) ->
+            {
+                log.info("{}", new String(payload));
         });
 
         subscriber.subscribe();
